@@ -30,6 +30,8 @@ public class StringProblems{
     // deFront("Hello") → "llo"
     // deFront("java") → "va"
     // deFront("away") → "aay"
+    // deFront("aapple") -> "apple"
+    // deFront("abeep") -> "abeep"
     public String deFont(String s1){
         //implement code here
         return "";
