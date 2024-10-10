@@ -9,9 +9,14 @@ public class StringProblems{
     // endsLy("y") → false
     // endsLy("oddy") → false
     public boolean endsLy(String x){
-            //implement code here
-        return false;
+         if( x.length() > 2){
+            if(x.substring(x.length()-2).equals("ly")){
+            return true;
+        } 
+            
     }
+    return false;
+}
 
 
     // Given two strings, append them together (known as "concatenation") 
@@ -21,10 +26,13 @@ public class StringProblems{
     // conCat("dog", "cat") → "dogcat"
     // conCat("abc", "") → "abc"
     public String conCat(String s1, String s2){
-        //implement code here
-        return "";
+        if(s1.length()>1 && s2.length()>1){
+        if(s1.substring(s1.length()-1).equals(s2.substring(0,1))){
+            return s1 + s2.substring(1);
+        }
+}
+return s1 + s2;
     }
-
     // Given a string, return a version without the first 2 chars. 
     // Except keep the first char if it is 'a' and keep the second char if it is 'b'. 
     // The string may be any length. Harder than it looks.
@@ -34,8 +42,19 @@ public class StringProblems{
     // deFront("aapple") -> "apple"
     // deFront("abeep") -> "abeep"
     public String deFront(String s1){
-        //implement code here
-        return "";
+        boolean aV = s1.substring(0,1).equals("a");
+        boolean bV = s1.substring(1,2).equals("b");
+       
+        if(aV && bV){
+            return s1;
+        }else if(aV){
+            return s1.substring(0,1 ) + s1.substring(2);
+        } else if(bV){
+            return s1.substring(1);
+        }else{
+            return s1.substring(2);
+        }
+       
     }
 
     
@@ -46,7 +65,18 @@ public class StringProblems{
     // withoutX("xHi") → "Hi"
     // withoutX("Hxix") → "Hxi"
     public String withoutX(String s1){
-        return "";
+        boolean xF = s1.substring(0,1).equals("x");
+        boolean xB = s1.substring(s1.length()-1).equals("x");
+        if(xF && xB){
+            return s1.substring(1,s1.length()-1);
+        }else if(xF){
+            return s1.substring(1 );
+        }else if(xB){
+            return s1.substring(0, s1.length() -1);
+        }else{
+            return s1;
+        }
+       
     }
 
     // Given a string str, if the string starts with "f" return "Fizz".
@@ -57,7 +87,20 @@ public class StringProblems{
     // fizzString("dib") → "Buzz"
     // fizzString("fib") → "FizzBuzz"
     public String fizzString(String s1){
-        return "";
+        boolean f = s1.substring(0,1).equals("f");
+        boolean b = s1.substring(s1.length()-1).equals("b");
+        String fi = "Fizz";
+        String bu = "Buzz";
+        if(f && b){
+            return fi + bu;
+
+        }else if(f){
+            return fi;
+        }else if(b){
+            return bu;
+        }else{
+            return s1;
+        }
     }
 
     // Given an int n, return the string form of the number followed 
@@ -70,6 +113,31 @@ public class StringProblems{
     // fizzString2(2) → "2!"
     // fizzString2(3) → "Fizz!"
     public String fizzString2(int x){
-        return "";
+        
+        boolean d3;
+        boolean d5;
+        if((x%3 == 0)){
+        
+            d3 = true;
+        }else{
+            d3 = false;
+        }
+        if((x%5 == 0)){
+             d5 = true;
+        }else{
+             d5 = false;
+        }
+        
+     
+        if(d5 && d3){
+            return "FizzBuzz!";
+        }else if(d5){
+            return "Buzz!";
+        }else if(d3){
+            return "Fizz!";
+        }else{
+            return ""+ x + "!";
+        }
+        
     }
 }
